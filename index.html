@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Portfolio | Kenichi Nakamura
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body id="top">
+  <header class="header">
+   <div class="logo">
+    Kenichi Nakamura
+    <span>
+     .
+    </span>
+   </div>
+   <nav class="nav">
+    <ul>
+     <li>
+      <a href="#top">
+       About
+      </a>
+     </li>
+     <li>
+      <a href="#works">
+       Works
+      </a>
+     </li>
+     <!--
+     <li>
+      <a href="#contact">
+       Contact
+      </a>
+     </li>
+    -->
+    </ul>
+   </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+   <div class="hero-inner">
+    <h1 class="hero-title">
+     About this site
+    </h1>
+    <p class="hero-subtitle">
+     ここはエンジニアKenichi Nakamuraのポートフォリオサイトです。
+     <br/>
+     これまで身につけたスキルで制作したWEBサイト（サンプル）をまとめています。
+    </p>
+    <h1 class="hero-title">
+     About me
+    </h1>
+    <p class="hero-subtitle">
+     1983年生まれ。フロントエンドの開発（と営業職）に携わってきました。
+     <br/>
+     UI/UXを重視したインタラクティブなWeb体験を設計します。
+     <br/>
+     最新のWeb技術を取り入れ、モダンでメンテナブルなコードを書くことを大切にしています。
+    </p>
+    <button class="hero-btn" onclick="scrollToSection('works')">
+     View My Works
+    </button>
+   </div>
+  </section>
+  <section class="section works" id="works">
+   <div class="container">
+    <h1 class="section-title">
+     Works
+    </h1>
+    <div class="portfolio">
+     <!-- 各作品のサムネイル -->
+     <div class="work" data-modal="modal1">
+      <img alt="作品1のサムネイル" src="./images/a.png"/>
+      <p>
+       デザインに強い制作企業WEB
+      </p>
+     </div>
+     <div class="work" data-modal="modal2">
+      <img alt="作品2のサムネイル" src="./images/b.png"/>
+      <p>
+       地域密着コンサル企業WEB
+      </p>
+     </div>
+     <div class="work" data-modal="modal3">
+      <img alt="作品3のサムネイル" src="./images/c.png"/>
+      <p>
+       システム開発企業WEB
+      </p>
+     </div>
+     <div class="work" data-modal="modal4">
+      <img alt="作品4のサムネイル" src="./images/d.png"/>
+      <p>
+       クリエイター向けSNS
+      </p>
+     </div>
+     <div class="work" data-modal="modal5">
+      <img alt="作品5のサムネイル" src="./images/e.png"/>
+      <p>
+       シンプルなECサイト
+      </p>
+     </div>
+     <div class="work" data-modal="modal6">
+      <img alt="作品6のサムネイル" src="./images/f.png"/>
+      <p>
+       他、WEBサイト以外など
+      </p>
+     </div>
+    </div>
+    <!-- モーダルウィンドウの構造 -->
+     
+<!-- モーダル例：1つ目 -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>コーポレートサイト</h3>
+            <p>
+              デザインに強いWEB制作企業のサイトのサンプルです。清潔感のあるビジュアルと、洗練されたデザインを目指しました。<br /><br />
+              📚 技術スタックなど<br />
+              HTML5 - セマンティックタグ<br />
+              CSS3 - Flexbox, Grid, Animations<br />
+              JavaScript (ES6+) <br />
+              レスポンシブデザイン対応（PC、タブレット、スマホ）
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/a.png" alt="Work1">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- モーダル例：2つ目 -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>コーポレートサイト</h3>
+            <p>
+              地域密着型で中小企業を応援するコンサルティング企業のサイトのサンプルです。トップページに鮮やかなアニメーションを設けることにより、アクセスしたユーザに印象的なページとなることを目指しました。<br /><br />
+              📚 技術スタックなど<br />
+              React 18.3: UIライブラリ<br />
+              TypeScript 5.6<br />
+              Vite 6.0<br />
+              Tailwind CSS 4.1<br />
+              レスポンシブデザイン対応（PC、タブレット、スマホ）
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/b.png" alt="Work2">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- モーダル例：3つ目 -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>コーポレートサイト</h3>
+            <p>
+              フロントエンドに強いシステム開発企業のサイトのサンプルです。
+              シンプルなUI/UXデザインにより、確実な視認性と、高速な読み込みを実現しています。<br /><br />
+              📚 技術スタックなど<br />
+              HTML5<br />
+              CSS3: Flexbox、Grid、アニメーション<br />
+              JavaScript: Vanilla JS<br />
+              PHP: お問い合わせフォーム<br />
+              （コードの設置のみ。動作させておりません。）<br />
+              レスポンシブデザイン対応
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/c.png" alt="Work3">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- モーダル例：4つ目 -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>クリエイター向けのSNSサイト</h3>
+            <p>
+              パステルカラーとかわいいアニメーションを用いた、クリエイター向けSNSサイトのサンプルです。
+              直感的な操作と豊富なフィードバックのあるUX設計で、ユーザの操作性を重視しました。<br /><br />
+              📚 技術スタックなど<br />
+              HTML、CSS、JavaScript<br />
+              requestAnimationFrame: 毎フレーム更新<br />
+              Canvas APIを使用したパーティクルシステム<br />
+              Intersection Observer APIでパフォーマンス最適化<br />
+              マウス追従パララックス<br />
+              レスポンシブデザイン対応
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/d.png" alt="Work4">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- モーダル例：5つ目 -->
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>ECサイト（トップページのみ）</h3>
+            <p>
+              シンプルで洗練されたECサイトをフロントエンド実装したサンプルです。影とホバーエフェクトによる奥行きや、グラデーションオーバーレイにより、可読性を向上しています。<br /><br />
+              📚 技術スタックなど<br />
+              React 18.3: UIライブラリ<br />
+              TypeScript 5.2<br />
+              Vite 6.0<br />
+              Tailwind CSS 4.1<br />
+              レスポンシブデザイン対応
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/e.png" alt="Work5">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- モーダル例：6つ目 -->
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- モーダルの中身を横並びレイアウトにする -->
+        <div class="modal-body">
+          <!-- 左側：テキスト -->
+          <div class="modal-text">
+            <h3>私のGithubです。</h3>
+            <p>
+              このサイトで紹介している各種WEBサイト（サンプル）のソースコードや、他のソースコードもおいております。もしよろしければご覧ください。<br />
+            </p>
+          </div>
+          <!-- 右側：画像 -->
+          <div class="modal-image">
+            <a href="https://github.com/metacur" target="_blank" >
+            <img src="./images/f.png" alt="Work6">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <footer class="footer">
+   <p>
+    &copy; 2025 Kenichi Nakamura. All Rights Reserved.
+   </p>
+  </footer>
+ </body>
+</html>

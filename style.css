@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* ===============================
+   カラーテーマ（淡い青みグレー）
+================================ */
+:root {
+  --bg-light: #fafafa;
+  --card-bg: #f6f9fc;
+  --text-dark: #333;
+  --accent: #4ea8de;
+  --muted: #666;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   ベースリセット
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===============================
+   ヘッダー
+================================ */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px var(--shadow);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* ===============================
+   セクション共通設定
+================================ */
+.section {
+  padding: 4rem 4% 3rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ===============================
+   Heroセクション
+================================ */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #f6f9fc 0%, #eaf3fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  padding: 0.8rem 2.4rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(78, 168, 222, 0.3);
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(78, 168, 222, 0.4);
+}
+
+.hero::after {
+  content: "▼";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 1.2rem;
+  animation: scrollBlink 2s infinite;
+}
+
+@keyframes scrollBlink {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, 0); }
+  50% { opacity: 1; transform: translate(-50%, 8px); }
+}
+
+/* ===============================
+   Worksセクション
+================================ */
+
+/* 作品一覧全体（グリッドレイアウト） */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 各カード最小260px */
+  gap: 1.5rem; /* 各カード間の間隔を少し狭く */
+  justify-items: center; /* グリッド内のカードを中央に */
+  padding: 1rem 0;
+  max-width: 1200px; /* コンテンツ全体の最大幅を固定 */
+  margin: 0 auto; /* 中央寄せ */
+}
+
+/* 各作品カード */
+.work {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* 画像とタイトルを縦並びに配置 */
+  align-items: center;
+  max-width: 300px; /* 各カードの幅上限を指定（小さめに） */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ホバー時にわずかに浮き上がる */
+.work:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* サムネイル画像 */
+.work img {
+  width: 100%;
+  height: 200px; /* カード全体の高さは維持 */
+  object-fit: contain; /* トリミングせず全体を収める */
+  background-color: #f6f9fc; /* 背景を淡いグレーで補う（空白を自然に） */
+  border-bottom: 1px solid #ddd; /* 画像とテキストを明確に区切る */
+  display: block;
+  padding: 4px; /* 少し内側に余裕を与えることで窮屈さを防ぐ */
+  border-radius: 6px; /* やや角丸にして柔らかい印象に */
+}
+
+
+/* 作品タイトル */
+.work p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  padding: 0.8rem 0;
+  background: #fff;
+  margin: 0;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+/* ホバー時にタイトル色をアクセントカラーに */
+.work:hover p {
+  color: var(--accent);
+}
+
+/* ===============================
+   レスポンシブ対応
+================================ */
+
+/* タブレット（中画面）では2列 */
+@media (max-width: 1024px) {
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* スマホ（小画面）では1列 */
+@media (max-width: 600px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===============================
+   モーダルウィンドウ
+================================ */
+
+/* モーダル全体の背景 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* モーダル内容ボックス */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* 閉じるボタン */
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--accent);
+}
+
+/* モーダルの中身（横並びに） */
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* ✅ 垂直方向で中央寄せ */
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 300px; /* 高さをある程度確保して中央寄せが成立しやすくする */
+}
+
+/* 左側のテキスト */
+.modal-text {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* テキストも中央寄せ気味に */
+}
+
+.modal-text h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.modal-text p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* 右：画像ブロック */
+.modal-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ✅ 画像を縦横ともに中央配置 */
+}
+
+.modal-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* スマホ対応：縦並びに切り替え */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-image img {
+    max-width: 100%;
+  }
+}
+
+
+/* ===============================
+   Contact・Footer
+================================ */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+}
