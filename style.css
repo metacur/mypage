@@ -232,6 +232,72 @@ body {
 }
 
 /* ===============================
+   Works：ホバー時のテキストオーバーレイ
+================================ */
+
+/* オーバーレイ全体の基本スタイル */
+.work-overlay {
+  position: absolute;            /* カード内で重ねる */
+  inset: 0;                      /* 親要素にぴったり重ねる */
+  background: rgba(0, 0, 0, 0.5);/* 半透明の黒背景で可読性を確保 */
+  color: #fff;                   /* 文字を白で表示 */
+  display: flex;                 /* 中央寄せのためFlexbox使用 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;                    /* 初期状態では非表示 */
+  transition: opacity 0.4s ease; /* フェードインのアニメーション */
+  border-radius: 10px;           /* カードと同じ角丸に */
+}
+
+/* オーバーレイ内のタイトル */
+.work-overlay h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* 若干の影で読みやすく */
+}
+
+/* オーバーレイ内の補足テキスト */
+.work-overlay p {
+  font-size: 0.9rem;
+  color: var(--accent);          /* アクセントカラーで視認性を高める */
+  font-weight: 500;
+}
+
+/* オーバーレイ内テキストの背景を透明化
+   （既存の .work p の白背景を打ち消す） */
+.work-overlay p {
+  background: transparent !important; /* ✅ 背景を完全に透明に */
+  margin: 0;
+  padding: 0;
+}
+.work-overlay p {
+  color: #cccccc; /* ✅ 明るめのグレー (#ccc)：やや淡いシルバー調で柔らかい印象 */
+  font-weight: 400; /* やや軽めのウェイトで上品に */
+}
+
+/* ホバー時にオーバーレイを表示 */
+.work:hover .work-overlay {
+  opacity: 1;
+}
+
+/* オーバーレイが正しく重なるように親にpositionを設定 */
+.work {
+  position: relative;            /* オーバーレイを内包させるために必要 */
+  overflow: hidden;              /* オーバーレイがはみ出ないように */
+}
+
+/* 最終上書き：オーバーレイ内2行目テキスト色を確実に反映 */
+.work .work-overlay p {
+  color: #cccccc !important;  /* ✅ 明るめグレー（サイトAよりやや淡い） */
+  font-weight: 400 !important;/* ✅ すっきり見せるため少し軽く */
+  background: transparent !important; /* ✅ 念のため再指定 */
+}
+
+
+/* ===============================
    レスポンシブ対応
 ================================ */
 
